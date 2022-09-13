@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Classic Motor Repair</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/agency.css" rel="stylesheet">
+
+</head>
+
+<body id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">CMR</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="calculator.html">Car Wash</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="rent/detail.html">Detail Page</a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Header -->
+    <header class="masthead">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Classic Motor Repair</div>
+                <div class="intro-heading">Car Wash Cost Calculator</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Calculator -->
+    <section class="page-section" id="about">
+        <div class="container">
+            <form action="" id="carenaform" onsubmit="return false;">
+                <fieldset>
+
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <h3 class="form-title">Basic Wash</h3>
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Basic wash</label>
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <select id="basic_wash" name='basic_wash' onchange="calculateTotal()">
+                    <option value="Basic">Select Wash</option>
+                    <option value="Express12">Express wash ($12)</option>
+                    <option value="Express15">Express wash, plus tires ($15)</option>
+                    <option value="Express25">Express wash, plus tires and interior clean ($25)</option>
+                    </select>
+                        </div>
+
+
+                        <div class="col-md-2 form-group">
+                            <label>Car Type</label>
+                        </div>
+
+                        <div class="col-md-10 form-group">
+                            <select id="car_type" name='car_type' onchange="calculateTotal()">
+                    <option value="Car">Select Car Type</option>
+                    <option value="Regular">Regular ($10)</option>
+                    <option value="Van">Van ($15)</option>
+                    <option value="Truck">Truck or SUV ($20)</option>
+                    </select>
+                        </div>
+
+
+
+
+                        <div class="col-md-12">
+                            <h3 class="form-title" style="margin-top: 40px;">Clear-Coat Protection And Wax</h3>
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label>Protection type</label>
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <select id="protection" name='protection' onchange="calculateTotal()">
+                    <option value="protection">Select Protection</option>
+                    <option value="Clear_coat">Clear-coat protectors ($15)</option>
+                    <option value="Temporary">Temporary wax ($5)</option>
+                    </select>
+                        </div>
+
+
+                        <div class="col-md-2 form-group">
+                            <label>Polish type</label>
+                        </div>
+
+                        <div class="col-md-10 form-group">
+                            <select id="Polish type" name='Polish_type' onchange="calculateTotal()">
+                    <option value="Polish">Select Polish</option>
+                    <option value="Regular_polish">Regular ($15)</option>
+                    <option value="Full">Full ($5)</option>
+                    </select>
+                        </div>
+
+
+
+                        <div class="col-md-12">
+                            <h3 class="form-title" style="margin-top: 40px;">Extra Services</h3>
+                        </div>
+                        <div class="col-md-2 form-group">
+                            <label for='underbody_wash' class="inlinelabel">Underbody Wash ($10)</label>
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <input type="checkbox" id="underbody_wash" name='underbody_wash' onclick="calculateTotal()" />
+                        </div>
+
+                        <div class="col-md-2 form-group">
+                            <label for='tire_gloss' class="inlinelabel">Tire Gloss ($4.25)</label>
+                        </div>
+                        <div class="col-md-10 form-group">
+                            <input type="checkbox" id="tire_gloss" name='tire_gloss' onclick="calculateTotal()" />
+                        </div>
+
+
+                        <div id="totalPrice"></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+        <a id="toTop" href="#wrapper">Back to top</a>
+        <section>
+            <div class="box-container">
+                <div class="box">
+                    <h3>About us</h3>
+                    <p>We confidently declare that once you visit our detailing center, you will return to us again. We guarantee, you will enjoy the result and cozy atmosphere.</p>
+                </div>
+                <div class="box">
+                    <h3>Customer Service</h3>
+                    <a href="#">Email Us</a>
+                    <a href="#">Safety Materials</a>
+                    <a href="#">FAQ's</a>
+                    <a href="#">Extensive exterior cleaning</a>
+                </div>
+                <div class="box">
+                    <h3>Quick links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="calculator.html">Car wash</a>
+                    <a href="rent/detail.html">Detail page</a>
+                    <a href="contact.html">Contact</a>
+                    <!-- <a href="#"></a> -->
+                </div>
+                <div class="box">
+                    <h3>Follow us</h3>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+
+            <h1 class="credit"> <span> Classic motor repair | Copyright &copy; 2021 | all rights reserved! </span> </h1>
+        </section>
+    </footer>
+    <!-- Portfolio Modals -->
+
+    <!-- Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/portfolio/01-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
+                                    maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Threads</li>
+                                    <li>Category: Illustration</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/portfolio/02-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
+                                    maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Explore</li>
+                                    <li>Category: Graphic Design</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/portfolio/03-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
+                                    maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Finish</li>
+                                    <li>Category: Identity</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
+                                    maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Lines</li>
+                                    <li>Category: Branding</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/portfolio/05-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
+                                    maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Southwest</li>
+                                    <li>Category: Website Design</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="img/portfolio/06-full.jpg" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate,
+                                    maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2017</li>
+                                    <li>Client: Window</li>
+                                    <li>Category: Photography</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                  <i class="fas fa-times"></i>
+                  Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <script src="js/formcalculations.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/agency.min.js"></script>
+
+</body>
+
+</html>
